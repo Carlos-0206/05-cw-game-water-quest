@@ -22,21 +22,30 @@ Fonts:
   box-sizing: border-box;
 }
 
+:root {
+  --cw-yellow: #ffc907;
+  --cw-yellow-dark: #c79a00;
+  --cw-yellow-light: #fff3bf;
+  --cw-white: #ffffff;
+  --cw-text-dark: #3a3000;
+}
+
 body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 30px;
-  background-color: #f0f0f0;
-  color: #333;
+  background-color: var(--cw-yellow-light);
+  color: var(--cw-text-dark);
 }
 
 .container {
   max-width: 750px;
   margin: 50px auto;
-  background-color: #fff;
+  background-color: var(--cw-white);
   padding: 40px;
   border-radius: 10px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  border: 3px solid var(--cw-yellow-dark);
+  box-shadow: 0 8px 24px rgba(58, 48, 0, 0.15);
 }
 
 h1 {
@@ -44,7 +53,7 @@ h1 {
   font-size: 30px;
   font-weight: bold;
   margin-bottom: 20px;
-  color: #333;
+  color: var(--cw-yellow-dark);
 }
 
 h1 img {
@@ -63,16 +72,17 @@ h1 img {
   display: flex;
   justify-content: space-around;
   margin-bottom: 30px;
-  background-color: #f5f5f5;
+  background-color: var(--cw-white);
   padding: 15px 0;
   border-radius: 8px;
+  border: 2px solid var(--cw-yellow);
 }
 
 .stats p {
   margin: 0;
   font-size: 18px;
   font-weight: bold;
-  color: #333;
+  color: var(--cw-yellow-dark);
 }
 
 .game-grid {
@@ -84,7 +94,8 @@ h1 img {
 }
 
 .grid-cell {
-  background-color: #e8e8e8;
+  background-color: var(--cw-white);
+  border: 2px solid var(--cw-yellow);
   border-radius: 8px;
   aspect-ratio: 1;
   display: flex;
@@ -130,8 +141,8 @@ h1 img {
 
 
 button {
-  background-color: #4CAF50;
-  color: white;
+  background-color: var(--cw-yellow-dark);
+  color: var(--cw-white);
   border: none;
   padding: 12px 24px;
   font-size: 16px;
@@ -139,5 +150,41 @@ button {
   cursor: pointer;
   display: block;
   margin: 30px auto 0;
-  transition: background-color 0.2s;
+  transition: background-color 0.2s, transform 0.15s;
+}
+
+button:hover {
+  background-color: #ad8600;
+  transform: translateY(-1px);
+}
+
+.popup-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.popup-content {
+  background: var(--cw-white);
+  border: 3px solid var(--cw-yellow-dark);
+  border-radius: 12px;
+  padding: 28px 24px;
+  width: min(90vw, 360px);
+  text-align: center;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.2);
+}
+
+#popup-message {
+  margin: 0 0 18px;
+  font-size: 28px;
+  font-weight: bold;
+  color: var(--cw-yellow-dark);
+}
+
+.hidden {
+  display: none;
 }
